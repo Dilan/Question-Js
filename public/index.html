@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Game :: Question</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div id="game">
+    <input type="text" id="new-suggestion">
+    <ul id="suggestion-list"></ul>
+</div>
+
+<script src="/js/json2.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/underscore.js"></script>
+<script src="/js/backbone.js"></script>
+<script src="/js/backbone-localstorage.js"></script>
+<script src="/js/game.js"></script>
+
+<!-- Templates -->
+
+<script type="text/template" id="suggestion-item-template">
+    <div><%= value %></div>
+</script>
+
+</body></html>
