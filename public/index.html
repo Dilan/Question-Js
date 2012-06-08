@@ -11,6 +11,7 @@
 <div id="game">
     <input type="text" id="new-suggestion">
     <ul id="suggestion-list"></ul>
+    <input type="button" id="reset" value="reset all">
 </div>
 
 <script src="/js/json2.js"></script>
@@ -21,9 +22,14 @@
 <script src="/js/game.js"></script>
 
 <!-- Templates -->
-
 <script type="text/template" id="suggestion-item-template">
-    <div><%= value %></div>
+<div>
+    <% _.each(symbols, function(symbol) { %>
+        <b id="<%= symbol.uid %>" style="color:<%= symbol.color %>"> <%= symbol.value %>  </b>
+    <% }); %>
+
+    Match : exact <%= match.exact %> Partial <%= match.partial %>
+</div>
 </script>
 
 </body></html>
