@@ -7,29 +7,38 @@
 </head>
 
 <body>
+    <div id="game">
+        <ul id="question-box"></ul>
+        <input type="text" id="new-suggestion">
+        <ul id="suggestion-list"></ul>
+        <input type="button" id="reset" value="Start new">
+    </div>
 
-<div id="game">
-    <input type="text" id="new-suggestion">
-    <ul id="suggestion-list"></ul>
-    <input type="button" id="reset" value="reset all">
-</div>
+    <script src="/js/json2.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/underscore.js"></script>
+    <script src="/js/backbone.js"></script>
+    <script src="/js/backbone-localstorage.js"></script>
+    <script src="/js/dictionary.js"></script>
+    <script src="/js/game.js"></script>
 
-<script src="/js/json2.js"></script>
-<script src="/js/jquery.js"></script>
-<script src="/js/underscore.js"></script>
-<script src="/js/backbone.js"></script>
-<script src="/js/backbone-localstorage.js"></script>
-<script src="/js/game.js"></script>
+    <!-- Templates -->
+    <script type="text/template" id="suggestion-item-template">
+        <div>
+            <% _.each(symbols, function(symbol) { %>
+                <b class="symbol" id="<%= symbol.uid %>" style="color:<%= symbol.color %>"> <%= symbol.value %>  </b>
+            <% }); %>
 
-<!-- Templates -->
-<script type="text/template" id="suggestion-item-template">
-<div>
-    <% _.each(symbols, function(symbol) { %>
-        <b id="<%= symbol.uid %>" style="color:<%= symbol.color %>"> <%= symbol.value %>  </b>
-    <% }); %>
+            Match : exact <%= match.exact %> Partial <%= match.partial %>
+        </div>
+    </script>
 
-    Match : exact <%= match.exact %> Partial <%= match.partial %>
-</div>
-</script>
-
-</body></html>
+    <script type="text/template" id="question-template">
+        <div>
+            <% _.each(symbols, function(symbol) { %>
+                <b class="symbol" id="<%= symbol.uid %>" style="color:<%= symbol.color %>"> <%= symbol.value %></b>
+            <% }); %>
+        </div>
+    </script>
+</body>
+</html>
